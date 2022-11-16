@@ -1,22 +1,44 @@
 {
-  "name": "component-elements",
-  "private": true,
-  "scripts": {
-    "install": "lerna exec -- yarn",
-    "clean": "lerna run clean",
-    "prebuild": "lerna bootstrap --no-ci",
-    "build": "run-s clean build:*",
-    "build:packages": "lerna run build",
-    "publish": "lerna publish",
-    "lint": "lerna run lint",
-    "test": "lerna run test"
+  "name": "preactement",
+  "version": "1.8.2",
+  "author": "James Hill <contact@jameshill.dev>",
+  "license": "MIT",
+  "main": "./dist/define.es5.js",
+  "types": "./dist/define.d.ts",
+  "exports": {
+    ".": "./dist/define.js",
+    "./es5": {
+      "type": "./dist/define.d.ts",
+      "import": "./dist/define.es5.js",
+      "require": "./dist/define.es5.js"
+    }
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
+  "typesVersions": {
+    "*": {
+      "es5": [
+        "./dist/define.d.ts"
+      ]
+    }
+  },
+  "directories": {
+    "lib": "dist",
+    "test": "packages/preactement/tests"
+  },
+  "scripts": {
+    "start": "run-s clean watch",
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch",
+    "clean": "rimraf ./dist",
+    "lint": "eslint",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "preact": ">=10"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.11",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^3.3.0",
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@types/jest": "^27.4.1",
@@ -29,8 +51,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.1.5",
     "jest": "^27.5.1",
-    "lerna": "^4.0.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.4",
@@ -39,6 +59,7 @@
     "typescript": "^4.5.5",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "preact": "^10.6.6"
   }
 }

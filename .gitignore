@@ -1,7 +1,6 @@
 node_modules/
-lerna-debug.log
 npm-debug.log
 yarn-error.log
 package-lock.json
-packages/*/dist
-packages/*/tests/coverage
+dist
+tests/coverage

@@ -12,7 +12,11 @@
     "moduleResolution": "node",
     "target": "ES2018",
     "sourceMap": true,
-    "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019"]
+    "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019"],
+    "outDir": "./dist",
+    "jsx": "react",
+    "jsxFactory": "h"
   },
-  "exclude": ["node_modules", "webpack.config.ts", "tests", "./dist"]
+  "exclude": ["node_modules", "webpack.config.ts", "tests", "./dist"],
+  "include": ["./src"]
 }
