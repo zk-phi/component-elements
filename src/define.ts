@@ -63,7 +63,7 @@ function define<P = {}>(
  * -------------------------------- */
 
 function setupElement<T>(component: ComponentFunction<T>, options: IOptions = {}): any {
-  const { attributes = [] } = options;
+  const { attributes = [], formAssociated = false } = options;
 
   if (typeof Reflect !== 'undefined' && Reflect.construct) {
     const CustomElement = function () {
@@ -80,6 +80,7 @@ function setupElement<T>(component: ComponentFunction<T>, options: IOptions = {}
     };
 
     CustomElement.observedAttributes = ['props', ...attributes];
+    CustomElement.formAssociated = formAssociated;
 
     CustomElement.prototype = Object.create(HTMLElement.prototype);
     CustomElement.prototype.constructor = CustomElement;
@@ -99,6 +100,7 @@ function setupElement<T>(component: ComponentFunction<T>, options: IOptions = {}
     __options = options;
 
     static observedAttributes = ['props', ...attributes];
+    static formAssociated = formAssociated;
 
     public connectedCallback() {
       onConnected.call(this);
