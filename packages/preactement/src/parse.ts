@@ -5,7 +5,7 @@ import {
   getAttributeObject,
   selfClosingTags,
   getPropKey,
-} from '@component-elements/shared';
+} from './shared';
 
 /* -----------------------------------
  *

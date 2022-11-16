@@ -9,7 +9,7 @@ import {
   getPropKey,
   getElementAttributes,
   getAsyncComponent,
-} from '@component-elements/shared';
+} from './shared';
 import { parseHtml } from './parse';
 import { IOptions, ComponentFunction } from './model';
 
