@@ -6,6 +6,7 @@ declare type ComponentAsync<P = {}> = Promise<ComponentFactory<P>> | Promise<{
 }>;
 interface IOptions {
     attributes?: string[];
+    formAssociated?: boolean;
     formatProps?: <P = any>(props: P) => P;
     wrapComponent?: <P>(child: ComponentFactory<P>) => ComponentFactory<P>;
 }
