@@ -3,31 +3,20 @@
   "version": "1.8.2",
   "author": "James Hill <contact@jameshill.dev>",
   "license": "MIT",
-  "main": "./dist/define.es5.js",
-  "types": "./dist/define.d.ts",
+  "source": "src/define.ts",
+  "main": "dist/define.js",
+  "types": "dist/define.d.ts",
+  "umd:main": "dist/define.umd.js",
+  "module": "dist/define.mjs",
   "exports": {
-    ".": "./dist/define.js",
-    "./es5": {
-      "type": "./dist/define.d.ts",
-      "import": "./dist/define.es5.js",
-      "require": "./dist/define.es5.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "es5": [
-        "./dist/define.d.ts"
-      ]
-    }
-  },
-  "directories": {
-    "lib": "dist",
-    "test": "packages/preactement/tests"
+    "types": "./dist/define.d.ts",
+    "require": "./dist/define.js",
+    "default": "./dist/define.modern.mjs"
   },
   "scripts": {
     "start": "run-s clean watch",
-    "build": "webpack --mode=production",
-    "watch": "webpack --watch",
+    "build": "microbundle",
+    "watch": "microbundle watch",
     "clean": "rimraf ./dist",
     "lint": "eslint",
     "test": "jest"
@@ -37,29 +26,20 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.11",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-preact-pure": "^3.3.0",
-    "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "babel-jest": "^28.0.1",
-    "babel-loader": "^8.2.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^3.3.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.1.5",
     "jest": "^27.5.1",
+    "microbundle": "^0.15.1",
+    "preact": "^10.6.6",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.1.4",
-    "ts-loader": "^9.2.6",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-node-externals": "^3.0.0",
-    "preact": "^10.6.6"
+    "ts-jest": "^27.1.4"
   }
 }

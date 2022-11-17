@@ -23,6 +23,5 @@ module.exports = {
   },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\js$': 'babel-jest',
   },
 };

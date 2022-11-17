@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "target": "ES2018",
+    "target": "es2016",
     "sourceMap": true,
     "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019"],
     "outDir": "./dist",
