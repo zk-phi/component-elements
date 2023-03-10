@@ -68,6 +68,7 @@ function setupElement<T>(component: ComponentFunction<T>, options: IOptions = {}
   if (typeof Reflect !== 'undefined' && Reflect.construct) {
     const CustomElement = function () {
       const element = Reflect.construct(HTMLElement, [], CustomElement);
+      element.style.display ??= options.display;
 
       element.__mounted = false;
       element.__component = component;
@@ -101,6 +102,11 @@ function setupElement<T>(component: ComponentFunction<T>, options: IOptions = {}
 
     static observedAttributes = ['props', ...attributes];
     static formAssociated = formAssociated;
+
+    constructor () {
+      super();
+      this.style.display ??= this.__options.display;
+    }
 
     public connectedCallback() {
       onConnected.call(this);

@@ -23,6 +23,7 @@ interface IOptions {
   formAssociated?: boolean;
   formatProps?: <P = any>(props: P) => P;
   wrapComponent?: <P>(child: ComponentFactory<P>) => ComponentFactory<P>;
+  display?: string,
 }
 
 /* -----------------------------------
